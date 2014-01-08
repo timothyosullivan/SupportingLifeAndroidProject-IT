@@ -1,4 +1,4 @@
-package ie.ucc.bis.supportinglife.test;
+package ie.ucc.bis.supportinglife.activity.test;
 
 import ie.ucc.bis.supportinglife.activity.HomeActivity;
 import android.test.ActivityInstrumentationTestCase2;
