@@ -33,7 +33,7 @@ import ie.ucc.bis.supportinglife.rule.engine.TreatmentRuleEngine;
  */
 public class CcmRedEyeDangerSignDiagnosticTest extends CcmDiagnosticRuleEngineTest {
 	
-	private static final String RED_EYE_DURATION = "14";
+	private static final String RED_EYE_DURATION_IN_DAYS = "14";
 	
     public CcmRedEyeDangerSignDiagnosticTest() {
         super(); 
@@ -52,7 +52,7 @@ public class CcmRedEyeDangerSignDiagnosticTest extends CcmDiagnosticRuleEngineTe
     	// 2. red eyes duration = 14 days
     	reviewItemLabel = getResources().getString(R.string.ccm_ask_secondary_assessment_review_red_eyes_duration);
     	reviewItemSymptomId = getResources().getString(R.string.ccm_ask_initial_assessment_red_eyes_duration_four_days_symptom_id);
-    	getReviewItems().add(new RedEyesDurationCcmReviewItem(reviewItemLabel, RED_EYE_DURATION, reviewItemSymptomId, null, -1));	
+    	getReviewItems().add(new RedEyesDurationCcmReviewItem(reviewItemLabel, RED_EYE_DURATION_IN_DAYS, reviewItemSymptomId, null, -1));	
     }
 
     /**
