@@ -10,8 +10,16 @@ import java.util.ArrayList;
 import android.content.res.Resources;
 import android.test.ActivityInstrumentationTestCase2;
 
+/**
+ * This abstract class provides base functionality for test cases related
+ * to the CCM Diagnostic rule engine.
+ * 
+ * @author Tim O Sullivan
+ *
+ */
 public abstract class CcmDiagnosticRuleEngineTest extends ActivityInstrumentationTestCase2<CcmAssessmentActivity> {
 
+	protected static final String POSITIVE_SYMPTOM_RESPONSE = "YES"; 
 	protected static final String LOG_TAG = "ie.ucc.bis.supportinglife.ccm.rule.engine.test";
 
 	private SupportingLifeBaseActivity supportingLifeActivity;
