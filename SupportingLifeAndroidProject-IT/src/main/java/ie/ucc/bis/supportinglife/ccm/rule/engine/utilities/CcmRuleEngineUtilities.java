@@ -73,8 +73,8 @@ public class CcmRuleEngineUtilities {
 		
         for (Diagnostic diagnostic : patientDiagnostics) {
         	// need to ignore non-standard classifications
-        	// i.e. only include those classifications where the CCM Treatment Display Name is not null
-        	if (diagnostic.getClassification().getCcmTreatmentDisplayName() != null) {
+        	// i.e. only include those classifications where the classification is a header or footer
+        	if (diagnostic.isTreatmentHeader() != true && diagnostic.isTreatmentFooter() != true) {
         		classificationCount++;
         	}
 		}		
