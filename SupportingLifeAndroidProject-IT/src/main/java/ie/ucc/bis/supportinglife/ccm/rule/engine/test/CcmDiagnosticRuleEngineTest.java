@@ -3,7 +3,7 @@ package ie.ucc.bis.supportinglife.ccm.rule.engine.test;
 import ie.ucc.bis.supportinglife.activity.CcmAssessmentActivity;
 import ie.ucc.bis.supportinglife.activity.SupportingLifeBaseActivity;
 import ie.ucc.bis.supportinglife.assessment.model.review.ReviewItem;
-import ie.ucc.bis.supportinglife.domain.Patient;
+import ie.ucc.bis.supportinglife.domain.PatientAssessment;
 
 import java.util.ArrayList;
 
@@ -23,13 +23,13 @@ public abstract class CcmDiagnosticRuleEngineTest extends ActivityInstrumentatio
 	protected static final String LOG_TAG = "ie.ucc.bis.supportinglife.ccm.rule.engine.test";
 
 	private SupportingLifeBaseActivity supportingLifeActivity;
-	private Patient patient;
+	private PatientAssessment patientAssessment;
 	private ArrayList<ReviewItem> reviewItems;
 	private Resources resources;
 
 	@Override
 	public void setUp() {
-		setPatient(new Patient("patientFirstName", "patientSurname"));
+		setPatientAssessment(new PatientAssessment());
 		setSupportingLifeActivity(getActivity());
 		setReviewItems(new ArrayList<ReviewItem>());
 		setResources(getSupportingLifeActivity().getApplicationContext().getResources());
@@ -59,15 +59,15 @@ public abstract class CcmDiagnosticRuleEngineTest extends ActivityInstrumentatio
 	/**
 	 * Getter Method: getPatient()
 	 */
-	public Patient getPatient() {
-		return patient;
+	public PatientAssessment getPatientAssessment() {
+		return patientAssessment;
 	}
 
 	/**
 	 * Setter Method: setPatient()
 	 */
-	public void setPatient(Patient patient) {
-		this.patient = patient;
+	public void setPatientAssessment(PatientAssessment patientAssessment) {
+		this.patientAssessment = patientAssessment;
 	}
 
 	/**

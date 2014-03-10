@@ -1,6 +1,7 @@
 package ie.ucc.bis.supportinglife.ccm.rule.engine.utilities;
 
 import ie.ucc.bis.supportinglife.rule.engine.Diagnostic;
+import ie.ucc.bis.supportinglife.rule.engine.TreatmentRecommendation;
 
 import java.util.List;
 
@@ -47,11 +48,11 @@ public class CcmRuleEngineUtilities {
 		boolean treatmentPresent = false;
 		
         for (Diagnostic diagnostic : patientDiagnostics) {
-        	for (String recommendedTreatment : diagnostic.getTreatmentRecommendations()) {
+        	for (TreatmentRecommendation recommendedTreatment : diagnostic.getTreatmentRecommendations()) {
         		// need to remove all newline and tab characters
-        		recommendedTreatment = recommendedTreatment.replace("\t", "").replace("\n", "").replace("\\n", "");
+        		String treatmentDescription = recommendedTreatment.getTreatmentDescription().replace("\t", "").replace("\n", "").replace("\\n", "");
         		
-            	if (recommendedTreatment.equals(treatmentToCheck)) {
+            	if (treatmentDescription.equals(treatmentToCheck)) {
             		treatmentPresent = true;
             	}
         	}	
