@@ -21,7 +21,8 @@ import android.test.ActivityInstrumentationTestCase2;
  */
 public abstract class CcmDiagnosticRuleEngineTest extends ActivityInstrumentationTestCase2<CcmAssessmentActivity> {
 
-	protected static final String POSITIVE_SYMPTOM_RESPONSE = "YES"; 
+	protected static final String POSITIVE_SYMPTOM_RESPONSE = "YES";
+	protected static final String NEGATIVE_SYMPTOM_RESPONSE = "NO"; 
 	protected static final String LOG_TAG = "ie.ucc.bis.supportinglife.ccm.rule.engine.test";
 
 	private SupportingLifeBaseActivity supportingLifeActivity;
