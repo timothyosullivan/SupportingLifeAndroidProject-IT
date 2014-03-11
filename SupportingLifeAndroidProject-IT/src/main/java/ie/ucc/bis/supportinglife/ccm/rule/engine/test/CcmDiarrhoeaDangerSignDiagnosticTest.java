@@ -68,7 +68,7 @@ public class CcmDiarrhoeaDangerSignDiagnosticTest extends CcmDiagnosticRuleEngin
      * the danger sign: 'Diarrhoea for 14 Days or more'
      * 
      */
-    public void testRedEyeDangerSign() {
+    public void testDiarrhoeaDangerSign() {
     	// 1. Execute the Classification rule engine to determine patient classifications
     	// 2. Execute the Treatment rule engine to determine patient treatments
     	executeRuleEngines();

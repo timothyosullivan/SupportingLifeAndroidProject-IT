@@ -57,7 +57,7 @@ public class CcmBloodInStoolDangerSignDiagnosticTest extends CcmDiagnosticRuleEn
      * the danger sign: 'Blood In Stool'
      * 
      */
-    public void testRedEyeDangerSign() {
+    public void testBloodInStoolDangerSign() {
     	// 1. Execute the Classification rule engine to determine patient classifications
     	// 2. Execute the Treatment rule engine to determine patient treatments
     	executeRuleEngines();
