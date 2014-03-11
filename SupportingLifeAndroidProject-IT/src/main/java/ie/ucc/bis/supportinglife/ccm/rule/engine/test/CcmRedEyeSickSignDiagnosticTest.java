@@ -26,8 +26,15 @@ import ie.ucc.bis.supportinglife.ccm.rule.engine.utilities.CcmRuleEngineUtilitie
  * 
  * The treatments returned by the CCM Treatment rule engine should be:
  * 
+ * 		-> TREAT at home and ADVISE on home care
  * 		-> Apply antibiotic eye ointment.
-		   Squeeze the size of a grain of rice on each of the inner lower eyelids, three times a day for 3 days.
+ *		   Squeeze the size of a grain of rice on each of the inner lower eyelids, three times a day for 3 days.
+ * 		-> Advise on when to return. Go to nearest health facility or, if not possible, return immediately if child:
+ * 			1. Cannot drink
+ * 			2. Becomes sicker
+ * 			3. Has blood in stool
+ * 		-> Advise caregiver to give more fluids and continue feeding
+ * 		-> Follow up child in 3 days
  * 
  * @author Tim O Sullivan
  *
@@ -74,10 +81,21 @@ public class CcmRedEyeSickSignDiagnosticTest extends CcmDiagnosticRuleEngineTest
         
         // 4. Has the correct classification been determined?
         assertEquals("incorrect classification assessed", true, CcmRuleEngineUtilities.classificationPresent(getPatientAssessment().getDiagnostics(), "Red Eye (less than 4 days)"));
-         
-        // 5. Has the correct treatment been determined?
+        
+        // 5. Have the correct number of treatments been determined?
+        assertEquals("the actual number of patient treatments does not match the expected number",
+     		   5, CcmRuleEngineUtilities.calculateTotalTreatmentNumber(getPatientAssessment().getDiagnostics()));  
+        
+        // 6. Have the correct treatments been determined?
+        assertEquals("incorrect treatment assessed", true, CcmRuleEngineUtilities.treatmentPresent(getPatientAssessment().getDiagnostics(), "TREAT at home and ADVISE on home care"));
+        
         assertEquals("incorrect treatment assessed", true, CcmRuleEngineUtilities.treatmentPresent(getPatientAssessment().getDiagnostics(), 
         		"Apply antibiotic eye ointment. Squeeze the size of a grain of rice on each of the inner lower eyelids, three times a day for 3 days."));
+        
+        assertEquals("incorrect treatment assessed", true, CcmRuleEngineUtilities.treatmentPresent(getPatientAssessment().getDiagnostics(), 
+        		"Advise on when to return. Go to nearest health facility or, if not possible, return immediately if child: 1) Cannot drink 2) Becomes sicker 3) Has blood in stool"));																														 
+        assertEquals("incorrect treatment assessed", true, CcmRuleEngineUtilities.treatmentPresent(getPatientAssessment().getDiagnostics(), "Advise caregiver to give more fluids and continue feeding"));
+        assertEquals("incorrect treatment assessed", true, CcmRuleEngineUtilities.treatmentPresent(getPatientAssessment().getDiagnostics(), "Follow up child in 3 days"));        
     }
 
 } // end of class

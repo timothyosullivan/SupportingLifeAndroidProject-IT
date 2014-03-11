@@ -51,7 +51,7 @@ public class CcmRuleEngineUtilities {
         	for (TreatmentRecommendation recommendedTreatment : diagnostic.getTreatmentRecommendations()) {
         		// need to remove all newline and tab characters
         		String treatmentDescription = recommendedTreatment.getTreatmentDescription().replace("\t", "").replace("\n", "").replace("\\n", "");
-        		
+
             	if (treatmentDescription.equals(treatmentToCheck)) {
             		treatmentPresent = true;
             	}
