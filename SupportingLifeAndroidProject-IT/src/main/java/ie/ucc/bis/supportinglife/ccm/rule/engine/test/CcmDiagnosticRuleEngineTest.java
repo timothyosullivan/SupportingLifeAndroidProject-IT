@@ -4,6 +4,8 @@ import ie.ucc.bis.supportinglife.activity.CcmAssessmentActivity;
 import ie.ucc.bis.supportinglife.activity.SupportingLifeBaseActivity;
 import ie.ucc.bis.supportinglife.assessment.model.review.ReviewItem;
 import ie.ucc.bis.supportinglife.domain.PatientAssessment;
+import ie.ucc.bis.supportinglife.rule.engine.ClassificationRuleEngine;
+import ie.ucc.bis.supportinglife.rule.engine.TreatmentRuleEngine;
 
 import java.util.ArrayList;
 
@@ -42,6 +44,23 @@ public abstract class CcmDiagnosticRuleEngineTest extends ActivityInstrumentatio
 		super(CcmAssessmentActivity.class); 
 	}
 
+	/**
+	 * Responsible for executing the Classification and Treatment rule engines to determine
+	 * patient classifications and treatments
+	 * 
+	 */
+	protected void executeRuleEngines() {
+		// 1. Execute the Classification rule engine to determine patient classifications
+        ClassificationRuleEngine classificationRuleEngine = new ClassificationRuleEngine();
+        classificationRuleEngine.readCcmClassificationRules(getSupportingLifeActivity());
+        classificationRuleEngine.determinePatientClassifications(getSupportingLifeActivity(), getReviewItems(), getPatientAssessment(), classificationRuleEngine.getSystemCcmClassifications());
+        
+        // 2. Execute the Treatment rule engine to determine patient treatments
+        TreatmentRuleEngine treatmentRuleEngine = new TreatmentRuleEngine();
+        treatmentRuleEngine.readCcmTreatmentRules(getSupportingLifeActivity());
+        treatmentRuleEngine.determineCcmTreatments(getSupportingLifeActivity(), getReviewItems(), getPatientAssessment());
+	}
+	
 	/**
 	 * Getter Method: getSupportingLifeActivity()
 	 */

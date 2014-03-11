@@ -61,8 +61,8 @@ public class CcmRuleEngineUtilities {
 	}
 
 	/**
-	 * Utility method to determine whether a treatment is present in
-	 * the diagnostics associated with a patient. 
+	 * Utility method to determine the number of non-header/non-footer classifications
+	 * associated with a patient assessment
 	 * 
 	 * @param patientDiagnostics
 	 * 
@@ -80,6 +80,25 @@ public class CcmRuleEngineUtilities {
 		}		
 		
 		return classificationCount;
+	}
+	
+	
+	/**
+	 * Utility method to determine the number of treatments
+	 * associated with a patient assessment
+	 * 
+	 * @param patientDiagnostics
+	 * 
+	 * @return int - number of treatments
+	 */
+	public static int calculateTotalTreatmentNumber(List<Diagnostic> patientDiagnostics) {
+		int treatmentCount = 0;
+		
+        for (Diagnostic diagnostic : patientDiagnostics) {
+        	treatmentCount += diagnostic.getTreatmentRecommendations().size();
+        }		
+		
+		return treatmentCount;
 	}
 	
 } // end of class

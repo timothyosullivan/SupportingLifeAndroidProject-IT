@@ -4,8 +4,6 @@ import ie.ucc.bis.supportinglife.R;
 import ie.ucc.bis.supportinglife.assessment.ccm.model.review.RedEyesDurationCcmReviewItem;
 import ie.ucc.bis.supportinglife.assessment.model.review.ReviewItem;
 import ie.ucc.bis.supportinglife.ccm.rule.engine.utilities.CcmRuleEngineUtilities;
-import ie.ucc.bis.supportinglife.rule.engine.ClassificationRuleEngine;
-import ie.ucc.bis.supportinglife.rule.engine.TreatmentRuleEngine;
 
 /**
  * This test case evaluates the correctness of the CCM Classification and 
@@ -64,16 +62,9 @@ public class CcmRedEyeSickSignDiagnosticTest extends CcmDiagnosticRuleEngineTest
      * 
      */
     public void testRedEyeSickSign() {
-    	
     	// 1. Execute the Classification rule engine to determine patient classifications
-        ClassificationRuleEngine classificationRuleEngine = new ClassificationRuleEngine();
-        classificationRuleEngine.readCcmClassificationRules(getSupportingLifeActivity());
-        classificationRuleEngine.determinePatientClassifications(getSupportingLifeActivity(), getReviewItems(), getPatientAssessment(), classificationRuleEngine.getSystemCcmClassifications());
-        
-        // 2. Execute the Treatment rule engine to determine patient treatments
-        TreatmentRuleEngine treatmentRuleEngine = new TreatmentRuleEngine();
-        treatmentRuleEngine.readCcmTreatmentRules(getSupportingLifeActivity());
-        treatmentRuleEngine.determineCcmTreatments(getSupportingLifeActivity(), getReviewItems(), getPatientAssessment());
+    	// 2. Execute the Treatment rule engine to determine patient treatments
+    	executeRuleEngines();
         
         // 3. Has the correct number of classifications been determined?
        assertEquals("the actual number of patient classifications does not match the expected number",
