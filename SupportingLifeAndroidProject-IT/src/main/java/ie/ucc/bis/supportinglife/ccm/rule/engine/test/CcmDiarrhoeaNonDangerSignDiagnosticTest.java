@@ -1,23 +1,23 @@
 package ie.ucc.bis.supportinglife.ccm.rule.engine.test;
 
 import ie.ucc.bis.supportinglife.R;
-import ie.ucc.bis.supportinglife.assessment.ccm.model.review.CoughDurationCcmReviewItem;
+import ie.ucc.bis.supportinglife.assessment.ccm.model.review.DiarrhoeaDurationCcmReviewItem;
 import ie.ucc.bis.supportinglife.assessment.model.review.ReviewItem;
 import ie.ucc.bis.supportinglife.ccm.rule.engine.utilities.CcmRuleEngineUtilities;
 
 /**
- * Test Case ID: ccm_rule_1_2
+ * Test Case ID: ccm_rule_2_3
  * 
  * This test case evaluates the correctness of the CCM Classification and 
  * Treatment rule engines in assessing the condition: 
  * 
- * 		-> 'Cough for 21 Days or more' when Cough Duration < 21 Days
+ * 		-> 'Diarrhoea for 14 days or more' when Diarrhoea Duration < 14 Days
  * 
  * The test cases establishes the following patient criteria to fulfil 
  * this condition:
  * 
- * 		-> Cough: YES
- * 		-> Cough Duration: 18 Days
+ * 		-> Diarrhoea (loose stools): YES
+ * 		-> Diarrhoea Duration: 13 Days
  * 
  * No classifications should be returned by the CCM Classification rule engine.
  * 
@@ -26,11 +26,11 @@ import ie.ucc.bis.supportinglife.ccm.rule.engine.utilities.CcmRuleEngineUtilitie
  * @author Tim O Sullivan
  *
  */
-public class CcmCoughNonDangerSignDiagnosticTest extends CcmDiagnosticRuleEngineTest {
+public class CcmDiarrhoeaNonDangerSignDiagnosticTest extends CcmDiagnosticRuleEngineTest {
 	
-	private static final String COUGH_DURATION_IN_DAYS = "18";
+	private static final String DIARRHOEA_DURATION_IN_DAYS = "13";
 	
-    public CcmCoughNonDangerSignDiagnosticTest() {
+    public CcmDiarrhoeaNonDangerSignDiagnosticTest() {
         super(); 
     }
     
@@ -39,17 +39,17 @@ public class CcmCoughNonDangerSignDiagnosticTest extends CcmDiagnosticRuleEngine
     	super.setUp();
 
     	// CONFIGURE THE PATIENT SYMPTOMS   	
-    	// 1. Cough: YES
-    	String reviewItemLabel = getResources().getString(R.string.ccm_ask_initial_assessment_review_cough);
-    	String reviewItemSymptomId = getResources().getString(R.string.ccm_ask_initial_assessment_cough_symptom_id);
-    	String reviewItemIdentifier = getResources().getString(R.string.ccm_ask_initial_assessment_cough_id);
+    	// 1. Diarrhoea: YES
+    	String reviewItemLabel = getResources().getString(R.string.ccm_ask_initial_assessment_review_diarrhoea);
+    	String reviewItemSymptomId = getResources().getString(R.string.ccm_ask_initial_assessment_diarrhoea_symptom_id);
+    	String reviewItemIdentifier = getResources().getString(R.string.ccm_ask_initial_assessment_diarrhoea_id);
     	getReviewItems().add(new ReviewItem(reviewItemLabel, POSITIVE_SYMPTOM_RESPONSE, reviewItemSymptomId, null, -1, reviewItemIdentifier));
 
-    	// 2. Cough Duration: 18 Days
-    	reviewItemLabel = getResources().getString(R.string.ccm_ask_initial_assessment_review_cough_duration);
-    	reviewItemSymptomId = getResources().getString(R.string.ccm_ask_initial_assessment_cough_duration_twenty_one_days_symptom_id);
-    	reviewItemIdentifier = getResources().getString(R.string.ccm_ask_initial_assessment_cough_duration_id);
-    	getReviewItems().add(new CoughDurationCcmReviewItem(reviewItemLabel, COUGH_DURATION_IN_DAYS, reviewItemSymptomId, null, -1, reviewItemIdentifier));
+    	// 2. Diarrhoea Duration: 13 days
+    	reviewItemLabel = getResources().getString(R.string.ccm_ask_initial_assessment_review_diarrhoea_duration);
+    	reviewItemSymptomId = getResources().getString(R.string.ccm_ask_initial_assessment_diarrhoea_duration_fourteen_days_symptom_id);
+    	reviewItemIdentifier = getResources().getString(R.string.ccm_ask_initial_assessment_diarrhoea_duration_id);
+    	getReviewItems().add(new DiarrhoeaDurationCcmReviewItem(reviewItemLabel, DIARRHOEA_DURATION_IN_DAYS, reviewItemSymptomId, null, -1, reviewItemIdentifier));	
     }
 
     /**

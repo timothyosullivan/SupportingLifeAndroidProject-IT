@@ -6,6 +6,8 @@ import ie.ucc.bis.supportinglife.assessment.model.review.ReviewItem;
 import ie.ucc.bis.supportinglife.ccm.rule.engine.utilities.CcmRuleEngineUtilities;
 
 /**
+ * Test Case ID: ccm_rule_7_1
+ * 
  * This test case evaluates the correctness of the CCM Classification and 
  * Treatment rule engines in assessing the condition: 
  * 
@@ -42,13 +44,13 @@ public class CcmRedEyeDangerSignDiagnosticTest extends CcmDiagnosticRuleEngineTe
     	super.setUp();
 
     	// CONFIGURE THE PATIENT SYMPTOMS   	
-    	// 1. red eyes = YES
+    	// 1. Red Eye: YES
     	String reviewItemLabel = getResources().getString(R.string.ccm_ask_secondary_assessment_review_red_eyes);
     	String reviewItemSymptomId = getResources().getString(R.string.ccm_ask_secondary_assessment_red_eyes_symptom_id);
     	String reviewItemIdentifier = getResources().getString(R.string.ccm_ask_secondary_assessment_red_eye_id);
     	getReviewItems().add(new ReviewItem(reviewItemLabel, POSITIVE_SYMPTOM_RESPONSE, reviewItemSymptomId, null, -1, reviewItemIdentifier));
 
-    	// 2. red eyes duration = 14 days
+    	// 2. Red Eye   Duration: 14 days
     	reviewItemLabel = getResources().getString(R.string.ccm_ask_secondary_assessment_review_red_eyes_duration);
     	reviewItemSymptomId = getResources().getString(R.string.ccm_ask_initial_assessment_red_eyes_duration_four_days_symptom_id);
     	reviewItemIdentifier = getResources().getString(R.string.ccm_ask_secondary_assessment_red_eye_duration_id);
