@@ -52,13 +52,13 @@ public class CcmRedEyeSickSignDiagnosticTest extends CcmDiagnosticRuleEngineTest
     	super.setUp();
 
     	// CONFIGURE THE PATIENT SYMPTOMS   	
-    	// 1. red eyes = YES
+    	// 1. Red Eye: YES
     	String reviewItemLabel = getResources().getString(R.string.ccm_ask_secondary_assessment_review_red_eyes);
     	String reviewItemSymptomId = getResources().getString(R.string.ccm_ask_secondary_assessment_red_eyes_symptom_id);
     	String reviewItemIdentifier = getResources().getString(R.string.ccm_ask_secondary_assessment_red_eye_id);
     	getReviewItems().add(new ReviewItem(reviewItemLabel, POSITIVE_SYMPTOM_RESPONSE, reviewItemSymptomId, null, -1, reviewItemIdentifier));
 
-    	// 2. red eyes duration = 2 days
+    	// 2. Red Eye Duration: 2 days
     	reviewItemLabel = getResources().getString(R.string.ccm_ask_secondary_assessment_review_red_eyes_duration);
     	reviewItemSymptomId = getResources().getString(R.string.ccm_ask_initial_assessment_red_eyes_duration_four_days_symptom_id);
     	reviewItemIdentifier = getResources().getString(R.string.ccm_ask_secondary_assessment_red_eye_duration_id);
